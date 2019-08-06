@@ -1,0 +1,32 @@
+<div class="col-md-12 col-sm-12 text-center">
+        <label [hidden]='currenttype==null'>** Currently using {{currenttype}} Plan</label>
+        <span [hidden]='currenttype==null' class="removetypecls" title="Remove Plan" (click)="removeplan()">
+          <img class="removeimght" src="assets/remove.png">
+        </span>
+
+        <div class="form-group col" [formGroup]="registerForm">
+          <select formControlName="type" class="form-control">
+              <option value=""></option>
+              <option value="Basic">Basic</option>
+              <option value="Premium">Premium</option>
+          </select>
+          <button class="btn btn-primary m-5" (click)="onSave()" [disabled]='this.registerForm.invalid'>Submit</button>
+        </div>
+</div>
+<div class="col b-1 " [hidden]='currenttype==null'>
+        <div class="col-md-12 col-sm-12 " *ngFor="let item of ipCollection; let pointIndex=index;  last as isLast; first as isFirst">
+            <label> 
+                <input type = "text" 
+                (keyup) = 'isValidIP(item)'
+                placeholder = "Enter IP Address" 
+                [(ngModel)]="item.ip" 
+                ngDefaultControl>
+              </label>
+            
+              <button class="btn btn-primary m-5"  (click)="deleteIpaddr(pointIndex)">-</button> 
+              <button class="btn btn-primary m-5" [disabled]="enableAddbtn()" (click)="addIpAddr(item.ip)" *ngIf="isLast">+</button>
+              <div class="invalidspn"  [(ngModel)]="item.valid" *ngIf="!isValidIP(item)">{{invaliderrormsg}}</div>
+        </div>
+        <button class="btn btn-primary mt-5" (click)="onSaveIPCollection()" [disabled]='isSaveValid()'>Save</button>
+</div>
+
