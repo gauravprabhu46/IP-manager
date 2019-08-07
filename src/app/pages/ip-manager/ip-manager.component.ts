@@ -107,7 +107,7 @@ ipformInit() {
       'Success!',
       'Current state has been saved',
       'success'
-    )
+    );
   }
 
   // Reset a user Plan
