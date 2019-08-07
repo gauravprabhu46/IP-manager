@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IpManagerComponent } from './pages/ip-manager/ip-manager.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { IpManagerComponent } from './pages/ip-manager/ip-manager.component';
     ReactiveFormsModule,
     FormsModule ,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -117,6 +117,12 @@ ipformInit() {
     this.ipformInit();
   }
 
+  // Clear IP collection from UI and storage
+  clearIPcollection(): void {
+    localStorage.removeItem('ipCollection');
+    this.ipformInit();
+  }
+
   // IP validator
   isValidIP(item) {
       const ip = item.ip;
@@ -134,7 +140,9 @@ ipformInit() {
   // Save the collection if no validation error
    isSaveValid() {
     const errfiltered = this.ipCollection.filter( v => v.valid === false );
-    if (errfiltered.length === 0) {
+    const atleastoneIP = this.ipCollection.filter( v => v.ip !== '' );
+
+    if (errfiltered.length === 0 && atleastoneIP.length > 0) {
       return false;
     } else {
       return true;

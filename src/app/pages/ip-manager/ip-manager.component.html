@@ -3,15 +3,21 @@
         <span [hidden]='currenttype==null' class="removetypecls" title="Remove Plan" (click)="removeplan()">
           <img class="removeimght" src="assets/remove.png">
         </span>
-
-        <div class="form-group col" [formGroup]="registerForm">
-          <select formControlName="type" class="form-control">
-              <option value=""></option>
-              <option value="Basic">Basic</option>
-              <option value="Premium">Premium</option>
-          </select>
-          <button class="btn btn-primary m-5" (click)="onSave()" [disabled]='this.registerForm.invalid'>Submit</button>
-        </div>
+        <div class="row">
+          <div class="col-md-5"></div>
+          <div class="col-md-2">
+            <div class="form-group col" [formGroup]="registerForm">
+              <select formControlName="type" class="form-control">
+                  <option value=""></option>
+                  <option value="Basic">Basic</option>
+                  <option value="Premium">Premium</option>
+              </select>
+              <button class="btn btn-primary btn-sm m-2" (click)="onSave()" [disabled]='this.registerForm.invalid'>Submit</button>
+            </div>
+          </div>
+          <div class="col-md-5"></div>  
+        </div>      
+      
 </div>
 <div class="col b-1 " [hidden]='currenttype==null'>
         <div class="col-md-12 col-sm-12 " *ngFor="let item of ipCollection; let pointIndex=index;  last as isLast; first as isFirst">
@@ -22,11 +28,15 @@
                 [(ngModel)]="item.ip" 
                 ngDefaultControl>
               </label>
-            
-              <button class="btn btn-primary m-5"  (click)="deleteIpaddr(pointIndex)">-</button> 
-              <button class="btn btn-primary m-5" [disabled]="enableAddbtn()" (click)="addIpAddr(item.ip)" *ngIf="isLast">+</button>
+
+              <button type="button"  (click)="deleteIpaddr(pointIndex)" class="btn btn-primary m-2 btn-circle"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" [disabled]="enableAddbtn()" (click)="addIpAddr(item.ip)" *ngIf="isLast" class="btn btn-primary m-2 btn-circle"><i class="fa fa-plus"></i>
+              </button>
               <div class="invalidspn"  [(ngModel)]="item.valid" *ngIf="!isValidIP(item)">{{invaliderrormsg}}</div>
         </div>
-        <button class="btn btn-primary mt-5" (click)="onSaveIPCollection()" [disabled]='isSaveValid()'>Save</button>
+
+        <button class="btn btn-primary btn-sm ml-3" (click)="clearIPcollection()" >Reset</button>
+        <button class="btn btn-primary btn-sm ml-2" (click)="onSaveIPCollection()" [disabled]='isSaveValid()'>Save</button>
 </div>
 
