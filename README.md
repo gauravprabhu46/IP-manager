@@ -1,5 +1,5 @@
 # Manage IP Address
-### Created By [Gaurav Prabhu](http://imsangwin.com)
+### Created By [Gaurav Prabhu](https://github.com/gauravr46)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
