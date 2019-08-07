@@ -1,6 +1,29 @@
 # Manage IP Address
+### Created By [Gaurav Prabhu](http://imsangwin.com)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+
+# Features
+
+  * Choose Plan Basic/Premium
+  * Basic Plan with option to add 5 IP address
+  * Premium Plan with option to add 10 IP address
+  * Add/Remove IP address
+  * IP address input validation
+  * On Submit saves to localstorage 
+  
+# Project Hierarchy
+  * IP manager in /src/app/pages/ip-manager/
+  * Page routing in src/app/app-routing.module.ts
+  
+# Third Party Plugins
+  * Sweetalert2 
+  * Fontawesome
+  * bootstrap
+  
+# Demo Application 
+[Demo App running in heroku](https://ip-manager.herokuapp.com/manage-ip).
+
 
 ## Development server
 
