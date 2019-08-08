@@ -2,7 +2,7 @@
  * @author Gaurav Prabhu <gauravprabhu77@gmail.com>
  *
  * Created at     : 2019-08-05,
- * Last modified  : 2019-08-06
+ * Last modified  : 2019-08-08
  */
 
 import { Component, OnInit } from '@angular/core';
@@ -17,6 +17,7 @@ import 'sweetalert2/src/sweetalert2.scss';
   templateUrl: './ip-manager.component.html',
   styleUrls: ['./ip-manager.component.scss']
 })
+
 export class IpManagerComponent implements OnInit {
   registerForm: FormGroup;
   ipform: FormGroup;
@@ -58,10 +59,9 @@ export class IpManagerComponent implements OnInit {
    if (this.getTypeFromStorage != null) {
     this.currenttype = this.getTypeFromStorage;
    }
-
 }
 
-// Update IPs if already present
+// Populate UI elements if already present in localstorage
 updateExistingIp() {
   if (localStorage.getItem('ipCollection') !== null) {
     const data = JSON.parse(localStorage.getItem('ipCollection'));
@@ -69,14 +69,14 @@ updateExistingIp() {
   }
 }
 
-// To initialise and reset user plan type
+// To initialise and reset user plan 
  formInit() {
     this.registerForm = this.formBuilder.group({
       type: ['', Validators.required]
   });
  }
 
- // To initialise and reset IP form
+ // To initialise and reset IP address
 ipformInit() {
   this.ipCollection = [{
     ip : '',
@@ -84,7 +84,7 @@ ipformInit() {
   }];
 }
 
- // Triggered when form is submitted
+ // Saves User Plan
  onSave() {
   // stop here or add alert message if form is invalid
   if (this.registerForm.invalid) {
@@ -123,7 +123,7 @@ ipformInit() {
     this.ipformInit();
   }
 
-  // IP validator
+  // IP address validator
   isValidIP(item) {
       const ip = item.ip;
       if (ip) {
@@ -137,7 +137,7 @@ ipformInit() {
       }
   }
 
-  // Save the collection if no validation error
+  // Save the IP collection if no validation error
    isSaveValid() {
     const errfiltered = this.ipCollection.filter( v => v.valid === false );
     const atleastoneIP = this.ipCollection.filter( v => v.ip !== '' );
@@ -154,7 +154,7 @@ ipformInit() {
     this.ipCollection.push({ip: '', valid: true});
   }
 
-  // Remove selected UI text box and clear if it is the last element
+  // Remove selected UI text box and clear input box if its the last element
   deleteIpaddr(index) {
     if (this.ipCollection.length === 1) {
       this.ipformInit();
