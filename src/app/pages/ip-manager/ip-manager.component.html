@@ -12,7 +12,7 @@
                   <option value="Basic">Basic</option>
                   <option value="Premium">Premium</option>
               </select>
-              <button class="btn btn-primary btn-sm m-2" (click)="onSave()" [disabled]='this.registerForm.invalid'>Submit</button>
+              <button class="btn btn-primary btn-sm mt-2" (click)="onSave()" [disabled]='this.registerForm.invalid'>Submit</button>
             </div>
           </div>
           <div class="col-md-5"></div>  
@@ -32,15 +32,17 @@
                     ngDefaultControl>
                   </label>
 
-                  <button type="button"  (click)="deleteIpaddr(pointIndex)" class="btn btn-primary m-2 btn-circle" title="Remove"><i class="fa fa-minus"></i>
+                  <button type="button"  (click)="deleteIpaddr(pointIndex)" class="btn btn-primary btn-circle ml-1" title="Remove"><i class="fa fa-minus"></i>
                   </button>
-                  <button type="button" [disabled]="enableAddbtn()" (click)="addIpAddr(item.ip)" *ngIf="isLast" class="btn btn-primary m-2 btn-circle" title="Add"><i class="fa fa-plus"></i>
+                  <button type="button" [disabled]="enableAddbtn()" (click)="addIpAddr(item.ip)" *ngIf="isLast" class="btn btn-primary btn-circle ml-1" title="Add"><i class="fa fa-plus"></i>
                   </button>
-                  <div class="invalidspn"  [(ngModel)]="item.valid" *ngIf="!isValidIP(item)">{{invaliderrormsg}}</div>
+                  <div class="invalidspn mb-1"  [(ngModel)]="item.valid" *ngIf="!isValidIP(item)">{{invaliderrormsg}}</div>
             </div>
-
-            <button class="btn btn-primary btn-sm" (click)="clearIPcollection()" >Reset</button>
-            <button class="btn btn-primary btn-sm ml-2" (click)="onSaveIPCollection()" [disabled]='isSaveValid()'>Save</button>
+            <div class="btn-footer mt-2">
+              <button class="btn btn-primary btn-sm" (click)="clearIPcollection()" >Reset</button>
+              <button class="btn btn-primary btn-sm ml-2" (click)="onSaveIPCollection()" [disabled]='isSaveValid()'>Save</button>
+            </div>
+           
   
     </div>
   </div>
