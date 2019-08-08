@@ -38,18 +38,19 @@
 .btn-circle {
     width: 24px;
     height: 24px;
-    padding: 6px 0px;
+    padding: 4px 0px;
     border-radius: 15px;
     text-align: center;
-    font-size: 8px;
-    border-color: #da8178;
-    background: #f19991;
+    color: black;
+    font-size: 9px;
+    border: 2px solid #066190;
+    background: #ffffff;
     line-height: 1.42857;
     &:hover {
-        background: #ec6e62;
+        background: #53b1e2;
     }
     &:active {
-        background: #ec6e62;
+        background: #53b1e2;
     }
 }
 
