@@ -1,4 +1,4 @@
-/* @summary Controller to manager behavior of add/remove IP
+/* @summary Controller to manage behavior of add/remove IP
  * @author Gaurav Prabhu <gauravprabhu77@gmail.com>
  *
  * Created at     : 2019-08-05,
